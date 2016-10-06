@@ -7,7 +7,7 @@ const basePath = process.cwd();
 // console.log("Basepath:"+path.join(basePath, `${myArgs.d}`, 'gulpfile.js'));
 // var ncp = require('ncp').ncp;
 
-fs.mkdirp(path.join(__dirname, '../../../'+`${myArgs.d}`), function(err){
+fs.mkdirp(path.join(basePath,`${myArgs.d}`), function(err){
     if(err){
         console.error(err);
     }
@@ -38,7 +38,7 @@ fs.mkdirp(path.join(__dirname, '../../../'+`${myArgs.d}`), function(err){
             console.log("Scripts copiada!");
         });  
        
-       fs.mkdirp(path.join(__dirname, '../../../'+`${myArgs.d}`, '/txt'), function (err) {
+       fs.mkdirp(path.join(basePath, `${myArgs.d}`, '/txt'), function (err) {
           if (err) {
             console.error(err);
           }
@@ -80,6 +80,19 @@ ejs.renderFile(path.join(__dirname, '../template', 'package.ejs'), { autor: `${m
         console.log("eY CANDELAAAAAAA:"+path.join(basePath, `${myArgs.d}`, 'package.json'));
         
         fs.writeFile(path.join(basePath, `${myArgs.d}`, 'package.json'), str);
+
+    }
+    console.log("Renderfile ok");
+});
+
+ejs.renderFile(path.join(__dirname, '../template', 'book.ejs'), { name_gitbook: `${myArgs.name}`}, function(err,str){
+    if(err) {
+        console.error("ERROR:"+err);
+    }
+    if(str) {
+        // console.error("STR:"+str);
+        // fs.writeFileSync('./'+`${myArgs.d}`+'/package.json', str);
+        fs.writeFile(path.join(basePath, `${myArgs.d}`, 'book.json'), str);
 
     }
     console.log("Renderfile ok");
