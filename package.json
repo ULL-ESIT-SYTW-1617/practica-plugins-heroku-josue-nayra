@@ -1,0 +1,30 @@
+{
+  "name": "gitbook-start-josue-nayra",
+  "version": "1.0.0",
+  "description": "A package for building an initial gitbook structure",
+  "main": "gitbook-start.js",
+  "bin": {
+    "gitbook-start-josue-nayra": "gitbook-start.js"
+  },
+  "directories": {
+    "man": "man"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ULL-ESIT-SYTW-1617/creacion-de-paquetes-y-modulos-en-nodejs-josue-nayra.git"
+  },
+  "keywords": [
+    "gitbook",
+    "initial",
+    "structure"
+  ],
+  "author": ["Josue Toledo Castro", "Nayra Rodriguez Perez"],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ULL-ESIT-SYTW-1617/creacion-de-paquetes-y-modulos-en-nodejs-josue-nayra/issues"
+  },
+  "homepage": "https://github.com/ULL-ESIT-SYTW-1617/creacion-de-paquetes-y-modulos-en-nodejs-josue-nayra#readme"
+}
