@@ -1,10 +1,10 @@
 {
   "name": "gitbook-start-josue-nayra",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A package for building an initial gitbook structure",
-  "main": "bin/gitbook-start.js",
+  "main": "gitbook-start.js",
   "bin": {
-    "gitbook-start-josue-nayra": "gitbook-start.js"
+    "gitbook-start-josue-nayra": "./gitbook-start.js"
   },
   "directories": {
     "man": "man"
