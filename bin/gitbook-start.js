@@ -1,6 +1,3 @@
-//http://stackoverflow.com/questions/4351521/how-do-i-pass-command-line-arguments-to-node-js
-// https://www.npmjs.com/package/ncp
-
 const myArgs = require('minimist')(process.argv.slice(2));
 const fs = require('fs-extra');
 const ejs = require('ejs');
@@ -46,7 +43,7 @@ fs.mkdirp('./'+`${myArgs.d}`, function(err){
             fs.copy('./template/txt/SUMMARY.md', './'+`${myArgs.d}`+'/txt/SUMMARY.md');
             fs.copy('./template/txt/section1', './'+`${myArgs.d}`+'/txt/section1', function(err){
                 if(err) return console.error(err)
-                console.log("Secion1 copiada!");
+                console.log("Seccion1 copiada!");
             });   
             
             ejs.renderFile('./template/txt/README.ejs', { name_gitbook: `${myArgs.name}`}, function(err,str) {
