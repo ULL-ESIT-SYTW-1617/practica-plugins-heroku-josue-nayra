@@ -6,6 +6,9 @@
   "bin": {
     "gitbook-start-josue-nayra": "./bin/gitbook-start.js"
   },
+  "man": [
+    "./man/doc.1"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,6 +24,18 @@
   "author": [
     "Josue Toledo Castro",
     "Nayra Rodriguez Perez"
+  ],
+  "contributors": [
+    {
+      "name": "Josue Toledo",
+      "email": "alu0100763492@ull.edu.es",
+      "url": "www.github.com/JosueTC94"
+    },
+    {
+      "name": "Nayra Rodriguez",
+      "email": "alu0100406122@ull.edu.es",
+      "url": "www.github.com/alu0100406122"
+    }
   ],
   "license": "ISC",
   "bugs": {
