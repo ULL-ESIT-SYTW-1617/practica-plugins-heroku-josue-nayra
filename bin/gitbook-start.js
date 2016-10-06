@@ -1,4 +1,7 @@
-const myArgs = require('minimist').(process.argv.slice(2));
+
+var minimist = require("minimist");
+const myArgs = minimist(process.argv.slice(2));
+
 const fs = require('fs-extra');
 const ejs = require('ejs');
 const path = require('path');
