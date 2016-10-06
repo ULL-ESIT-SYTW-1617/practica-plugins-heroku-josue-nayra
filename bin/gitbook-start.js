@@ -5,16 +5,18 @@ const path = require('path');
 
 // var ncp = require('ncp').ncp;
 
-fs.mkdirp('./'+`${myArgs.d}`, function(err){
+fs.mkdirp(path.join(__dirname, '../'+`${myArgs.d}`), function(err){
     if(err){
         console.error(err);
     }
     else{
-       fs.copy('./template/gulpfile.js', './'+`${myArgs.d}`+'/gulpfile.js');
-       fs.copy('./template/README.md', './'+`${myArgs.d}`+'/README.md');   
-       fs.copy('./template/VERSION', './'+`${myArgs.d}`+'/VERSION');   
+    //   fs.copy('./template/gulpfile.js', './'+`${myArgs.d}`+'/gulpfile.js');
+    //   console.log("File:"+path.join(__dirname,'../template','gulpfile.js'));
+       fs.copy(path.join(__dirname,'../template','gulpfile.js'), path.join(__dirname, '../'+`${myArgs.d}`, 'gulpfile.js'));
+       fs.copy(path.join(__dirname,'../template','README.md'), path.join(__dirname, '../'+`${myArgs.d}`, 'README.md'));   
+       fs.copy(path.join(__dirname, '../template', 'VERSION'), path.join(__dirname, '../'+`${myArgs.d}`, 'VERSION'));   
        
-       fs.mkdirp('./'+`${myArgs.d}`+'/scripts', function (err) {
+       fs.mkdirp(path.join(__dirname, '../'+`${myArgs.d}`, 'scripts'), function (err) {
           if (err) {
             console.error(err);
           } else {
@@ -29,24 +31,24 @@ fs.mkdirp('./'+`${myArgs.d}`, function(err){
     //       }
     //   });
        
-        fs.copy('./template/scripts', './'+`${myArgs.d}`+'/scripts', function(err){
+        fs.copy(path.join(__dirname, '../template', 'scripts') , path.join(__dirname, '../'+`${myArgs.d}`,'scripts'), function(err){
             if(err) return console.error(err)
             console.log("Scripts copiada!");
         });  
        
-       fs.mkdirp('./'+`${myArgs.d}`+'/txt', function (err) {
+       fs.mkdirp(path.join(__dirname, '../'+`${myArgs.d}`, '/txt'), function (err) {
           if (err) {
             console.error(err);
           }
           else {
             console.log("Construyendo txt ok");
-            fs.copy('./template/txt/SUMMARY.md', './'+`${myArgs.d}`+'/txt/SUMMARY.md');
-            fs.copy('./template/txt/section1', './'+`${myArgs.d}`+'/txt/section1', function(err){
+            fs.copy(path.join(__dirname, '../template', 'txt' , 'SUMMARY.md'), path.join(__dirname, '../'+`${myArgs.d}`, 'txt', 'SUMMARY.md'));
+            fs.copy(path.join(__dirname,'../template', 'txt', 'section1'), path.join(__dirname, '../'+`${myArgs.d}`, 'txt', 'section1'), function(err){
                 if(err) return console.error(err)
                 console.log("Seccion1 copiada!");
             });   
             
-            ejs.renderFile('./template/txt/README.ejs', { name_gitbook: `${myArgs.name}`}, function(err,str) {
+            ejs.renderFile(path.join(__dirname, '../template', 'txt', 'README.ejs'), { name_gitbook: `${myArgs.name}`}, function(err,str) {
                if(err) {
                    console.error(err);
                    throw err;
@@ -55,7 +57,7 @@ fs.mkdirp('./'+`${myArgs.d}`, function(err){
                   if(str) {
                     //   console.log(str);
                       //Creamos y escribimos en el fichero README.md
-                      fs.writeFileSync('./'+`${myArgs.d}`+'/txt/README.md', str);
+                      fs.writeFileSync(path.join(__dirname,'../'+`${myArgs.d}`,'txt', 'README.md'), str);
                   }
                }
             });
@@ -64,14 +66,14 @@ fs.mkdirp('./'+`${myArgs.d}`, function(err){
     }
 });
 
-ejs.renderFile('./'+'template/'+'/package.ejs', { autor: `${myArgs.autor}` , name_gitbook: `${myArgs.name}`, url: `${myArgs.url}`, url_bugs: `${myArgs.url}`, url_wiki: `${myArgs.url}`+'.wiki.git'}, function(err,str){
+ejs.renderFile(path.join(__dirname, '../template', 'package.ejs'), { autor: `${myArgs.autor}` , name_gitbook: `${myArgs.name}`, url: `${myArgs.url}`, url_bugs: `${myArgs.url}`, url_wiki: `${myArgs.url}`+'.wiki.git'}, function(err,str){
     if(err) {
         console.error("ERROR:"+err);
     }
     if(str) {
         // console.error("STR:"+str);
         // fs.writeFileSync('./'+`${myArgs.d}`+'/package.json', str);
-        fs.writeFileSync('./'+`${myArgs.d}`+'/package.json', str);
+        fs.writeFileSync(path.join(__dirname, '../'+`${myArgs.d}`, 'package.json'), str);
 
     }
     console.log("Renderfile ok");

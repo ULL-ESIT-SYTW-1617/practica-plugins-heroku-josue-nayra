@@ -1,13 +1,9 @@
 {
   "name": "gitbook-start-josue-nayra",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A package for building an initial gitbook structure",
-  "main": "gitbook-start.js",
   "bin": {
-    "gitbook-start-josue-nayra": "./gitbook-start.js"
-  },
-  "directories": {
-    "man": "man"
+    "gitbook-start-josue-nayra": "./bin/gitbook-start.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
