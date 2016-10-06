@@ -21,10 +21,18 @@
     "initial",
     "structure"
   ],
-  "author": ["Josue Toledo Castro", "Nayra Rodriguez Perez"],
+  "author": [
+    "Josue Toledo Castro",
+    "Nayra Rodriguez Perez"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ULL-ESIT-SYTW-1617/creacion-de-paquetes-y-modulos-en-nodejs-josue-nayra/issues"
   },
-  "homepage": "https://github.com/ULL-ESIT-SYTW-1617/creacion-de-paquetes-y-modulos-en-nodejs-josue-nayra#readme"
+  "homepage": "https://github.com/ULL-ESIT-SYTW-1617/creacion-de-paquetes-y-modulos-en-nodejs-josue-nayra#readme",
+  "devDependencies": {
+    "ejs": "^2.5.2",
+    "fs-extra": "^0.30.0",
+    "minimist": "^1.2.0"
+  }
 }
