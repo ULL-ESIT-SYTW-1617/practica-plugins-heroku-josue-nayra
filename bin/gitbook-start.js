@@ -1,9 +1,8 @@
-const myArgs = require('minimist')(process.argv.slice(2));
-
 const fs = require('fs-extra');
 const ejs = require('ejs');
 const path = require('path');
 const basePath = process.cwd();
+const myArgs = require('minimist')(process.argv.slice(2));
 
 // console.log("Basepath:"+path.join(basePath, `${myArgs.d}`, 'gulpfile.js'));
 // var ncp = require('ncp').ncp;
