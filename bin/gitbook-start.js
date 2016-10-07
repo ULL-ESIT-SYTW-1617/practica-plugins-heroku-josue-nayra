@@ -28,9 +28,9 @@ else
 {
     
     //Comprobando las opciones
-    directorio = myArgs.d || myArgs.name || 'Mi libro';
+    directorio = myArgs.d || myArgs.name || 'Milibro';
     autor = myArgs.autor || "Usuario";
-    nombre_gitbook = myArgs.name || myArgs.d || myArgs.autor || "Mi libro";
+    nombre_gitbook = myArgs.name || myArgs.d || myArgs.autor || "Milibro";
     
     if(myArgs.url)
     {
