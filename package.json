@@ -1,16 +1,17 @@
 {
   "name": "gitbook-start-josue-nayra",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "A package for building an initial gitbook structure",
-  "main": "./bin/gitbook-start.js",
+  "main": "index.js",
   "bin": {
-    "gitbook-start-josue-nayra": "./bin/gitbook-start.js"
+    "gitbook-start": "./bin/gitbook-start.js"
   },
   "man": [
     "./man/doc.1"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/gitbook-start.js"
   },
   "repository": {
     "type": "git",
@@ -45,6 +46,7 @@
   "devDependencies": {
     "ejs": "^2.5.2",
     "fs-extra": "^0.30.0",
+    "gitbook": "^3.2.2",
     "minimist": "^1.2.0",
     "paquete_npm": "^1.0.1"
   }
