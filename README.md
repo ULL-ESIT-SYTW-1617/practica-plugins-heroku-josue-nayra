@@ -25,9 +25,13 @@ Para instalar este módulo o paquete debemos ejecutar el siguiente comando:
     $ gitbook-start [options]
 ```
 Opciones posibles:
+    
     -d <directorio en el que se desplegará el libro>
+    
     --autor <autor del libro>
+    
     --name  <nombre del libro>
+    
     --url <url del repositorio en github>
 
 Una vez ejecutado, se creará el correspondiente directorio cuyo contenido será una estructura inicial a partir de la cual podemos configurar nuestro gitbook.
