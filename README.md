@@ -1,4 +1,4 @@
-# Práctica2. Sistemas y Tecnologías Web
+# Práctica 2. Sistemas y Tecnologías Web
 
 ## Creación de un Paquete NPM
 
