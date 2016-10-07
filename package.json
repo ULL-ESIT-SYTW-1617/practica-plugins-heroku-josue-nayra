@@ -7,7 +7,7 @@
     "gitbook-start": "./bin/gitbook-start.js"
   },
   "man": [
-    "./man/doc.1"
+    "doc.1"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -44,6 +44,11 @@
   },
   "homepage": "https://github.com/ULL-ESIT-SYTW-1617/creacion-de-paquetes-y-modulos-en-nodejs-josue-nayra#readme",
   "devDependencies": {
+    "ejs": "^2.5.2",
+    "fs-extra": "^0.30.0",
+    "minimist": "^1.2.0"
+  },
+  "dependencies": {
     "ejs": "^2.5.2",
     "fs-extra": "^0.30.0",
     "minimist": "^1.2.0"
