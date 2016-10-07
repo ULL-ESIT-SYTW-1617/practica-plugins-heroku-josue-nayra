@@ -5,7 +5,8 @@ const ejs = require('ejs');
 const path = require('path');
 const basePath = process.cwd();
 const myArgs = require('minimist')(process.argv.slice(2));
-const json = require('./package.json');
+// const json = require('./package.json');
+
 var directorio;
 var autor;
 var url_repo;
