@@ -22,23 +22,19 @@ if(myArgs.url)
 {
     url_repo = myArgs.url;
     url_wiki = myArgs.url.split(".git")[0].concat('.wiki.git');
+    url_bugs = myArgs.url.split(".git")[0].concat('/issues');
     // console.log("Split:"+url_wiki);
 }
 else
 {
+    //Aqui podriamos crear un repo a través de la api de github
     url_repo = " ";
     url_wiki = " ";
+    url_bugs = " ";
 }
 
-console.log("Directorio:"+directorio);
-console.log("Autor:"+autor);
-console.log("Url:"+url_repo);
-console.log("Url wiki:"+url_wiki);
-console.log("Nombre gitbook:"+nombre_gitbook);
 
-
-
-if(myArgs.h || myArgs.help)
+if(myArgs.h || myArgs.help || !myArgs)
 {
     console.log("Seccion de ayuda.");
     console.log("Comando: gitbook-start [options]");
