@@ -16,7 +16,7 @@ que permita al usuario desplegar un gitbook rápidamente.
 Para instalar este módulo o paquete debemos ejecutar el siguiente comando:
 
 ```
-    $ npm install gitbook-start-josue-nayra
+    $ npm install gitbook-start-josue-nayra -g
 ```
 
 ### Uso del módulo 
