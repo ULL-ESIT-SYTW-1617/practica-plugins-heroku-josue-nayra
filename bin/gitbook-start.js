@@ -5,7 +5,7 @@ const ejs = require('ejs');
 const path = require('path');
 const basePath = process.cwd();
 const myArgs = require('minimist')(process.argv.slice(2));
-// const json = require('./package.json');
+const json = require(path.join(__dirname,'../package.json')); 
 
 var directorio;
 var autor;
@@ -14,7 +14,13 @@ var nombre_gitbook;
 var url_wiki;
 var url_bugs;
 
-if(myArgs.h || myArgs.help || myArgs <= 1)
+
+if(myArgs.v || myArgs.version)
+{
+    console.log("Version:"+json.version);
+}
+
+if(myArgs.h || myArgs.help)
 {
     console.log("Seccion de ayuda.");
     console.log("Comando: gitbook-start [options]");
@@ -23,11 +29,13 @@ if(myArgs.h || myArgs.help || myArgs <= 1)
     console.log("--autor <autor del gitbook>");
     console.log("--name <nombre del gitbook>");
     console.log("--url <url del repositorio>");
+    console.log("--version");
 }
 else
 {
     
     //Comprobando las opciones
+    
     directorio = myArgs.d || myArgs.name || 'Milibro';
     autor = myArgs.autor || "Usuario";
     nombre_gitbook = myArgs.name || myArgs.d || myArgs.autor || "Milibro";
@@ -127,4 +135,6 @@ else
         }
         
     });
+    
+    console.log("Gitbook built!");
 }
