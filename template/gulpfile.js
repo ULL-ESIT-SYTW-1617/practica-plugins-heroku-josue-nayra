@@ -27,6 +27,15 @@ gulp.task('construir_gitbook', function()
 
 // Creando repositorio
 
+// Pasos a seguir en la creación de un repositorio remoto
+// git init
+// git add README.md
+// git commit -m "first commit"
+// git remote add origin https://github.com/alu0100406122/prueba.git
+// git push -u origin master
+
+
+
 gulp.task('init', function(){
    git.init(function(err){
        if(err) throw err;

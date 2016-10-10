@@ -48,6 +48,7 @@
     "fs-extra": "^0.30.0",
     "git-config": "0.0.7",
     "gulp": "^3.9.1",
+    "gulp-git": "^1.11.3",
     "minimist": "^1.2.0"
   }
 }
