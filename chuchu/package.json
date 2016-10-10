@@ -15,20 +15,20 @@
   },
   "repository": {
     "type": "git",
-    "url": " ",
-    "wiki": " "
+    "url": "https://github.com/alu0100406122/prueba",
+    "wiki": "https://github.com/alu0100406122/prueba.wiki.git"
   },
   "keywords": [
     "gitbook",
     "boilerplate",
     "starter"
   ],
-  "author": "alu0100406122",
+  "author": "nayra",
   "license": "MIT",
   "bugs": {
-    "url": " /issues"
+    "url": "https://github.com/alu0100406122/prueba/issues/issues"
   },
-  "homepage": " ",
+  "homepage": "https://github.com/alu0100406122/prueba",
   "dependencies": {
     "async": "^1.4.0",
     "fs-extra": "^0.22.1",
