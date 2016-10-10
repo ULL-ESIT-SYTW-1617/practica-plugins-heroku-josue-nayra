@@ -68,6 +68,30 @@ gulp.task('instalar_plugins', function()
 
 //------------------------------------------------------------------------------------
 
+// Generate-Gitbook
+
+gulp.task('generate-gitbook',function(){
+    var book = new gitbook.Book('./txt/', {
+        config: {
+            output: './gh-pages/'
+        }
+    });
+
+    return Q.all(book.parse())
+        .then(function () {
+            return book.generate('website');
+    });
+});
+
+//Generate-Wiki
+
+gulp.task('generate-wiki', function(){
+    return run(path.join(__dirname,'scripts','generate-wiki')).exec();
+});
+
+
+//------------------------------------------------------------------------------------
+
 gulp.task('default', function(){
     gulp.watch(['scripts/*', 'txt/**/*.md', 'book.json'], ['construir_gitbook']); 
 });
