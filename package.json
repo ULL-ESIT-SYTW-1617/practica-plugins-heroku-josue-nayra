@@ -46,7 +46,8 @@
   "dependencies": {
     "ejs": "^2.5.2",
     "fs-extra": "^0.30.0",
-    "minimist": "^1.2.0",
-    "git-config": "0.0.7"
+    "git-config": "0.0.7",
+    "gulp": "^3.9.1",
+    "minimist": "^1.2.0"
   }
 }
