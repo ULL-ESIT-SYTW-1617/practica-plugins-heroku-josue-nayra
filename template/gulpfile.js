@@ -5,89 +5,52 @@ var git = require('gulp-git');
 var path = require('path');
 var json = require(path.join(__dirname,'package.json'));
 
-gulp.task('construir_gitbook', function()
-{
-    return gulp.src('./scripts')
-        .pipe(shell([
-            "gitbook install"
-        ]))        
-        .pipe(shell([
-           "./scripts/losh generate-gitbook" 
-        ]))
-        .pipe(shell([
-           "./scripts/losh generate-wiki"
-        ]))
-        .pipe(shell([
-            "./scripts/losh deploy-gitbook"
-        ]))
-        .pipe(shell([
-            "./scripts/losh deploy-wiki"    
-        ]))
-});
-
+//------------------------------------------------------------------------------------
 // Creando repositorio
 
-// Pasos a seguir en la creación de un repositorio remoto
-// git init
-// git add README.md
-// git commit -m "first commit"
-// git remote add origin https://github.com/alu0100406122/prueba.git
-// git push -u origin master
-
-
-
-gulp.task('init', function(){
-   git.init(function(err){
-       if(err) throw err;
+// gulp.task('init', function(){
+//   git.init(function(err){
+//       if(err) throw err;
    
-       console.log("Repositorio inicializado.");
-   });
-   
-});
+//       console.log("Repositorio inicializado.");
+//   });
+// });
 
-gulp.task('addremote', function(){
-   git.addRemote('origin', json.repository.url, function(err){
-       if(err) throw err;
+// gulp.task('addremote', function(){
+//   git.addRemote('origin', json.repository.url, function(err){
+//       if(err) throw err;
        
-       console.log("Repositorio remoto añadido correctamente.");
-   });
-});
+//       console.log("Repositorio remoto añadido correctamente.");
+//   });
+// });
 
+// // Push inicial
+// gulp.task('push_inicial', ['init', 'addremote'], function(){
+//     git.push('origin', 'master', function(err){
+//       if(err) 
+//       {
+//           console.log("err:"+err);
+//           throw err; 
+//       }
+//     });
+// });
 
-// Push inicial
-
-gulp.task('push_inicial', ['init', 'addremote'], function(){
-    git.push('origin', 'master', function(err){
-       if(err) 
-       {
-           console.log("err:"+err);
-           throw err; 
-       }
-    });
-});
-
-
+//------------------------------------------------------------------------------------
 //Actualizar repositorio
 
-gulp.task('git-add', function(){
-    return gulp.src('')
-               .pipe(git.add());
+gulp.task('push', function(){
+    gulp.src('')
+        .pipe(shell([
+        'git add .'+
+        ';'+
+        'git commit -m "Actualizando Gitbook"'+
+        ';'+
+        'git push origin master'
+        ]));
 });
 
-gulp.task('git-commit', function(){
-    return gulp.src('')
-               .pipe(git.commit('Actualizando Gitbook'));
-});
-
-gulp.task('push', ['git-add','git-commit'], function(){
-    git.push('origin', 'master', function(err){
-       if(err) 
-       {
-           console.log("err:"+err);
-           throw err; 
-       }
-    });
-});
+//------------------------------------------------------------------------------------
+// Instalar dependencias y recursos
 
 gulp.task('instalar_recursos',['instalar_dependencias','instalar_plugins']);
 
@@ -103,6 +66,7 @@ gulp.task('instalar_plugins', function()
     ])) 
 });
 
+//------------------------------------------------------------------------------------
 
 gulp.task('default', function(){
     gulp.watch(['scripts/*', 'txt/**/*.md', 'book.json'], ['construir_gitbook']); 

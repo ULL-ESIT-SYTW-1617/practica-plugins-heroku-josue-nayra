@@ -36,6 +36,14 @@ Opciones posibles:
 
 Una vez ejecutado, se creará el correspondiente directorio cuyo contenido será una estructura inicial a partir de la cual podemos configurar nuestro gitbook.
 
+Pasos a seguir para el correcto despliegue del libro en Gitbook:
+
+- Nos situamos en el directorio creado para el contenido de nuestro libro en Gitbook, 
+una vez ahí instalamos las dependencias especificadas en el package.json mediante el comando:
+```bash
+    $ npm install
+```
+
 
 ### Enlaces
 
