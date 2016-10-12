@@ -4,39 +4,25 @@ var install = require('gulp-install');
 var git = require('gulp-git');
 var path = require('path');
 var json = require(path.join(__dirname,'package.json'));
+var gitbook = require('gitbook');
+var Q = require('q');
+var run = require('gulp-run');
+var git = require('simple-git');
+var fs = require('fs-extra');
+var ghpages = require('gh-pages');
+
 
 //------------------------------------------------------------------------------------
-// Creando repositorio
+// Repositorio Github
 
-// gulp.task('init', function(){
-//   git.init(function(err){
-//       if(err) throw err;
-   
-//       console.log("Repositorio inicializado.");
-//   });
-// });
-
-// gulp.task('addremote', function(){
-//   git.addRemote('origin', json.repository.url, function(err){
-//       if(err) throw err;
-       
-//       console.log("Repositorio remoto añadido correctamente.");
-//   });
-// });
-
-// // Push inicial
-// gulp.task('push_inicial', ['init', 'addremote'], function(){
-//     git.push('origin', 'master', function(err){
-//       if(err) 
-//       {
-//           console.log("err:"+err);
-//           throw err; 
-//       }
-//     });
-// });
-
-//------------------------------------------------------------------------------------
-//Actualizar repositorio
+gulp.task('push_inicial', function(){
+    git()
+        .init()
+        .add('./*')
+        .commit("first commit")
+        .addRemote('origin', json.repository.url)
+        .push('origin', 'master');
+});
 
 gulp.task('push', function(){
     gulp.src('')
@@ -48,6 +34,20 @@ gulp.task('push', function(){
         'git push origin master'
         ]));
 });
+
+//push genérico
+gulp.task('push_generico', function(){
+    fs.remove(path.resolve(__dirname, '.git'));
+    new Promise((resolve,reject) => {
+      git()
+        .init()
+        .add('./*')
+        .commit("Deploy to gitbook")
+        .addRemote('origin', json.repository.url)
+        .push('origin', 'master');  
+    })
+});
+
 
 //------------------------------------------------------------------------------------
 // Instalar dependencias y recursos
