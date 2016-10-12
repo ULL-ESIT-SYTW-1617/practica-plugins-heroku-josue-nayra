@@ -89,6 +89,31 @@ gulp.task('generate-wiki', function(){
     return run(path.join(__dirname,'scripts','generate-wiki')).exec();
 });
 
+//Deploy gitbook
+
+gulp.task('deploy-gitbook', function()
+{
+    ghpages.publish(path.join(__dirname, 'gh-pages'), function(err) { if(err) console.error("Error:" + err); });
+});
+
+//Deploy
+
+gulp.task('deploy', ['instalar_recursos','generate-gitbook','generate-wiki', 'deploy-gitbook'], function()
+{
+    console.log("Deploy task");
+    
+    fs.remove(path.resolve(path.join(__dirname,'wiki','.git')));
+    new Promise((resolve,reject) => {
+        git(path.resolve(path.join(__dirname,'wiki')))
+        .init()
+        .add('./*')
+        .commit("Deploy to wiki")
+        .addRemote('origin', json.repository.wiki)
+        .push(['--force', 'origin', 'master:master'], resolve)
+    });
+    
+    // return gulp.src('').pipe(shell(['./scripts/losh deploy-wiki']));
+});
 
 //------------------------------------------------------------------------------------
 
