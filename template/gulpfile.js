@@ -25,14 +25,10 @@ gulp.task('push_inicial', function(){
 });
 
 gulp.task('push', function(){
-    gulp.src('')
-        .pipe(shell([
-        'git add .'+
-        ';'+
-        'git commit -m "Actualizando Gitbook"'+
-        ';'+
-        'git push origin master'
-        ]));
+    git()
+        .add('./*')
+        .commit("Actualizando Gitbook.")
+        .push('origin', 'master');
 });
 
 //push genérico
@@ -117,6 +113,6 @@ gulp.task('deploy', ['instalar_recursos','generate-gitbook','generate-wiki', 'de
 
 //------------------------------------------------------------------------------------
 
-gulp.task('default', function(){
-    gulp.watch(['scripts/*', 'txt/**/*.md', 'book.json'], ['construir_gitbook']); 
-});
+// gulp.task('default', function(){
+//     gulp.watch(['scripts/*', 'txt/**/*.md', 'book.json'], ['construir_gitbook']); 
+// });

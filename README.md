@@ -34,16 +34,17 @@ Opciones posibles:
     
     --url <url del repositorio en github>
 
+
 Una vez ejecutado, se creará el correspondiente directorio cuyo contenido será una estructura inicial a partir de la cual podemos configurar nuestro gitbook.
 
-Pasos a seguir para el correcto despliegue del libro en Gitbook:
+A continuación, se deberá colocar en el directorio creado e instalar todas las dependencias necesarias:
 
-- Nos situamos en el directorio creado para el contenido de nuestro libro en Gitbook, 
-una vez ahí instalamos las dependencias especificadas en el package.json mediante el comando:
-```bash
+```bash 
     $ npm install
 ```
 
+Después de realizar modificaciones en su libro, el usuario puede añadir estos cambios al mismo mediante el "deploy". 
+Esta tarea está especificada en el archivo ***"gulpfile.js"*** como: ***"gulp deploy"***.
 
 ### Enlaces
 
