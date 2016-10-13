@@ -67,16 +67,8 @@ gulp.task('instalar_plugins', function()
 // Generate-Gitbook
 
 gulp.task('generate-gitbook',function(){
-    var book = new gitbook.Book('./txt/', {
-        config: {
-            output: './gh-pages/'
-        }
-    });
+    return run(path.join(__dirname,'scripts','generate-gitbook')).exec();
 
-    return Q.all(book.parse())
-        .then(function () {
-            return book.generate('website');
-    });
 });
 
 //Generate-Wiki
