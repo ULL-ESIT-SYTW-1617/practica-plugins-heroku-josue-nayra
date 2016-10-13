@@ -26,8 +26,9 @@ gulp.task('instalar_recursos', function()
 //------------------------------------------------------------------------------------
 
 //Deploy
-gulp.task('deploy', ['instalar_recursos', 'push'], function()
+gulp.task('deploy', ['instalar_recursos', 'push'], function(err)
 {
+    if(err) throw err;
     return gulp.src('')
            .pipe(shell([
             'npm publish'
