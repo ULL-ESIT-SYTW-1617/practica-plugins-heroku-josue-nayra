@@ -11,40 +11,45 @@ que permita al usuario desplegar un gitbook rápidamente.
 - Publicar paquete en npm
 
 
-### Instalación
+### Pasos a seguir: 
 
-Para instalar este módulo o paquete debemos ejecutar el siguiente comando:
-
-```
-    $ npm install gitbook-start-josue-nayra -g
-```
-
-### Uso del módulo 
-
-```
-    $ gitbook-start [options]
-```
-Opciones posibles:
+- Para instalar este módulo o paquete debemos ejecutar el siguiente comando de forma global:
     
-    -d <directorio en el que se desplegará el libro>
+    ```
+        $ npm install -g gitbook-start-josue-nayra
+    ```
+
+- Construir el libro mediante el comando siguiente: 
     
-    --autor <autor del libro>
+    ```
+        $ gitbook-start [options] -d 
+    ```
+    Opciones posibles:
+        
+        -d <directorio en el que se desplegará el libro>
+        
+        --autor <autor del libro>
+        
+        --name  <nombre del libro>
+        
+        --url <url del repositorio en github>
     
-    --name  <nombre del libro>
-    
-    --url <url del repositorio en github>
 
+   Una vez ejecutado, se creará el correspondiente directorio cuyo contenido será una estructura inicial a partir de la cual podemos configurar nuestro gitbook.
 
-Una vez ejecutado, se creará el correspondiente directorio cuyo contenido será una estructura inicial a partir de la cual podemos configurar nuestro gitbook.
+- A continuación, se deberá colocar en el directorio creado e instalar todas las dependencias necesarias:
 
-A continuación, se deberá colocar en el directorio creado e instalar todas las dependencias necesarias:
+    ```bash 
+        $ npm install
+    ```
 
-```bash 
-    $ npm install
-```
+- Después de realizar modificaciones en su libro, el usuario puede añadir estos cambios al mismo mediante el "deploy". 
+  Esta tarea está especificada en el archivo ***"gulpfile.js"*** como: 
+  
+    ```
+    gulp deploy
+    ```
 
-Después de realizar modificaciones en su libro, el usuario puede añadir estos cambios al mismo mediante el "deploy". 
-Esta tarea está especificada en el archivo ***"gulpfile.js"*** como: ***"gulp deploy"***.
 
 ### Enlaces
 
