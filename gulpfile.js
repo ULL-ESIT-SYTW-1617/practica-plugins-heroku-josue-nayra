@@ -1,17 +1,14 @@
 var gulp = require('gulp');
 var shell = require('gulp-shell');
 var install = require('gulp-install');
-var path = require('path');
 var git = require('simple-git');
-
-
 
 //------------------------------------------------------------------------------------
 // Repositorio Github
 gulp.task('push', function(){
     git()
         .add('./*')
-        .commit("Actualizando Gitbook.")
+        .commit("Actualizando paquete")
         .push('origin', 'master');
 });
 
@@ -26,9 +23,8 @@ gulp.task('instalar_recursos', function()
 //------------------------------------------------------------------------------------
 
 //Deploy
-gulp.task('deploy', ['instalar_recursos', 'push'], function(err)
+gulp.task('deploy', ['instalar_recursos', 'push'], function()
 {
-    if(err) throw err;
     return gulp.src('')
            .pipe(shell([
             'npm publish'
