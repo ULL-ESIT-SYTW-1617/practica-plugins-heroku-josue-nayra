@@ -1,11 +1,9 @@
 var gulp = require('gulp');
 var shell = require('gulp-shell');
 var install = require('gulp-install');
-var git = require('gulp-git');
 var path = require('path');
 var json = require(path.join(__dirname,'package.json'));
 var gitbook = require('gitbook');
-var Q = require('q');
 var run = require('gulp-run');
 var git = require('simple-git');
 var fs = require('fs-extra');
@@ -31,20 +29,6 @@ gulp.task('push', function(){
         .push('origin', 'master');
 });
 
-//push genérico
-gulp.task('push_generico', function(){
-    fs.remove(path.resolve(__dirname, '.git'));
-    new Promise((resolve,reject) => {
-      git()
-        .init()
-        .add('./*')
-        .commit("Deploy to gitbook")
-        .addRemote('origin', json.repository.url)
-        .push('origin', 'master');  
-    })
-});
-
-
 //------------------------------------------------------------------------------------
 // Instalar dependencias y recursos
 
@@ -67,8 +51,12 @@ gulp.task('instalar_plugins', function()
 // Generate-Gitbook
 
 gulp.task('generate-gitbook',function(){
-    return run(path.join(__dirname,'scripts','generate-gitbook')).exec();
-
+    if (!fs.existsSync(path.join(__dirname, 'gh-pages'))){
+        fs.mkdirSync(path.join(__dirname, 'gh-pages'));
+    }
+    new Promise((resolve,reject) =>{
+       return run(path.join(__dirname,'scripts','generate-gitbook')).exec(); 
+    });
 });
 
 //Generate-Wiki
