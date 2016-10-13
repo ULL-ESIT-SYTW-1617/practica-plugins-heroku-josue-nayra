@@ -40,14 +40,9 @@ else
     
     gitconfig(function(err,config){
         if(err) console.error(err);
-        // git_user = config.user.name;
-        // console.log("git_user: "+config.user.name);
-        autor = myArgs.autor || config.user.name || "Usuario";  
-        console.log("git_user: "+config.user.name);
-        //Comprobando las opciones
-          
-    
-        directorio = myArgs.d || myArgs.name || 'Milibro';
+
+        autor = myArgs.autor || config.user.name || "Usuario"; 
+        directorio = myArgs.d || myArgs.dir || myArgs.name || 'Milibro';
         nombre_gitbook = myArgs.name || myArgs.d || myArgs.autor || "Milibro";
         
         if(myArgs.url)

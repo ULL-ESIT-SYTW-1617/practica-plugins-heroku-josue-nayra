@@ -74,25 +74,26 @@ gulp.task('deploy-gitbook', function()
 
 //Deploy
 
-gulp.task('deploy', ['instalar_recursos','generate-gitbook','generate-wiki', 'deploy-gitbook'], function()
-{
-    console.log("Deploy task");
+gulp.task('eliminando_wiki', function(){
     
     fs.remove(path.resolve(path.join(__dirname,'wiki','.git')));
-    new Promise((resolve,reject) => {
-        git(path.resolve(path.join(__dirname,'wiki')))
+    
+});
+
+gulp.task('deploy', ['instalar_recursos','push','generate-gitbook','generate-wiki', 'deploy-gitbook', 'eliminando_wiki'], function()
+{
+    console.log("Deploy task");
+    git(path.resolve(path.join(__dirname,'wiki')))
         .init()
         .add('./*')
         .commit("Deploy to wiki")
         .addRemote('origin', json.repository.wiki)
-        .push(['--force', 'origin', 'master:master'], resolve)
-    });
-    
+        .push(['--force', 'origin', 'master:master'])
     // return gulp.src('').pipe(shell(['./scripts/losh deploy-wiki']));
 });
 
 //------------------------------------------------------------------------------------
 
-// gulp.task('default', function(){
-//     gulp.watch(['scripts/*', 'txt/**/*.md', 'book.json'], ['construir_gitbook']); 
-// });
+gulp.task('default', function(){
+    gulp.watch(['scripts/*', 'txt/**/*.md', 'book.json'], ['deploy']); 
+});

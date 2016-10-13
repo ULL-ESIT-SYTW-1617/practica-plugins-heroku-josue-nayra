@@ -50,6 +50,32 @@ que permita al usuario desplegar un gitbook rápidamente.
     gulp deploy
     ```
 
+### Tareas del gulp para el usuario
+
+ - Push inicial: Útil para el usuario cuando no ha añadido el repositorio remoto. Es necesario que el repositorio en Github esté creado previamente.
+    ```
+    gulp push_inicial
+    ```
+    
+ - Push: Actualización del repositorio en Github.
+   ```
+    gulp push
+   ```
+ 
+ - Instalar recursos: Tarea que le permite al usuario instalar dependencias y plugins necesarios.
+ ```
+    gulp instalar_recursos
+ ```
+ 
+ - Deploy: Comprende la instalación de los recursos necesarios para el despliegue del gitbook, actualización de repositorio, despliegue del mismo en gh-pages. 
+  ```
+    gulp deploy
+  ```
+  
+ - Default: Tarea por defecto que al ejecutarse llama a la tarea deploy descrita previamente.
+  ```
+    gulp
+  ```
 
 ### Enlaces
 
