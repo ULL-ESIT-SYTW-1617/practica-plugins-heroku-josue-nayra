@@ -45,14 +45,10 @@ que permita al usuario desplegar un gitbook rápidamente.
     ```
 
 - Después de realizar modificaciones en su libro, el usuario deberá actualizar el repositorio en Github y ejecutar el despliegue(publicar en la rama gh-pages): 
-    1.-
-        ```
-        gulp push
-        ```
-    2.-
-        ```
-        gulp deploy
-        ```
+    
+    1.- ``` $ gulp push```
+
+    2.- ``` $ gulp deploy```
 
 ### Tareas del gulp para el usuario
     
