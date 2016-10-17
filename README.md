@@ -44,29 +44,27 @@ que permita al usuario desplegar un gitbook rápidamente.
         $ npm install
     ```
 
-- Después de realizar modificaciones en su libro, el usuario puede añadir estos cambios al mismo mediante el "deploy". 
-  Esta tarea está especificada en el archivo ***"gulpfile.js"*** como: 
-  
-    ```
-    gulp deploy
-    ```
+- Después de realizar modificaciones en su libro, el usuario deberá actualizar el repositorio en Github y ejecutar el despliegue(publicar en la rama gh-pages): 
+    1.-
+        ```
+        gulp push
+        ```
+    2.-
+        ```
+        gulp deploy
+        ```
 
 ### Tareas del gulp para el usuario
-
- - Push inicial: Útil para el usuario cuando no ha añadido el repositorio remoto. Es necesario que el repositorio en Github esté creado previamente.
-    ```
-    gulp push_inicial
-    ```
     
- - Push: Actualización del repositorio en Github.
-   ```
-    gulp push
-   ```
- 
  - Instalar recursos: Tarea que le permite al usuario instalar dependencias y plugins necesarios.
  ```
     gulp instalar_recursos
  ```
+ 
+ - Push: Actualización del repositorio en Github. En el caso de que sea el push inicial, se ejecutará un git init y se añadirá un repositorio "origin" remoto tomando como url la dispuesta en el package.json
+   ```
+    gulp push
+   ```
  
  - Deploy: Comprende la instalación de los recursos necesarios para el despliegue del gitbook, actualización de repositorio, despliegue del mismo en gh-pages. 
   ```
