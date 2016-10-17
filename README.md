@@ -34,6 +34,7 @@ que permita al usuario desplegar un gitbook rápidamente.
         
         --url <url del repositorio en github>
     
+    ***En la opción "--url" es obligatorio introducir la url del repositorio en el que se desea desplegar el libro, ya que esta opción NO se rellena por defecto.***
 
    Una vez ejecutado, se creará el correspondiente directorio cuyo contenido será una estructura inicial a partir de la cual podemos configurar nuestro gitbook.
 
