@@ -5,7 +5,7 @@ var path = require('path');
 var json = require(path.join(__dirname,'package.json'));
 var git = require('simple-git');
 var fs = require('fs-extra');
-
+// var iaas = require('gitbook-start-iaas-ull-es-josue-nayra');
 
 //------------------------------------------------------------------------------------
 // Repositorio Github
@@ -56,6 +56,13 @@ gulp.task('deploy', function(){
        .pipe(shell(['./scripts/losh deploy-gitbook']))
        .pipe(shell(['./scripts/losh deploy-wiki']));
 });
+
+// gulp.task('deploy-iaas', function(){
+//         var iaas_IP = json.iaas_IP;
+//         var path = json.iaas_path;
+
+//         iaas.deploy(iaas_IP, path, json.repository.url);
+// });
 
 //------------------------------------------------------------------------------------
 

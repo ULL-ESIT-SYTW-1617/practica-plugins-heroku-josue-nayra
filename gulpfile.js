@@ -31,9 +31,6 @@ gulp.task('deploy', ['instalar_recursos', 'push'], function()
            ]))
 });
 
-// gulp.task('deploy-iaas',function(){
-    
-// });
 //------------------------------------------------------------------------------------
 
 gulp.task('default', ['deploy']);

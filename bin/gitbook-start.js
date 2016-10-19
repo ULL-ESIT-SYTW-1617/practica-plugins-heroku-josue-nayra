@@ -69,7 +69,7 @@ else
         if(myArgs.deploy)
         {
             console.log("Deploy to Iaas.");
-            iaas.deploy(myArgs.IP, myArgs.path, json.repository.url);
+            iaas.deploy(myArgs.IP, myArgs.path, json.repository.url, myArgs.usuarioremoto, myArgs.passwordremoto);
         }
         else
         {
