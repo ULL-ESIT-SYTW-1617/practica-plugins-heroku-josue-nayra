@@ -18,28 +18,33 @@ var url_wiki;
 var url_bugs;
 
 
-switch(myArgs.help || myArgs.version || myArgs.deploy){
-    case myArgs.version:
-        console.log("Version:"+json.version);
-        break;
-    case myArgs.help:
-        console.log("Seccion de ayuda.");
-        console.log("Comando: gitbook-start [options]");
-        console.log("Opciones disponibles:");
-        console.log("\t"+"-d <directorio en el que se desplegara el gitbook>");
-        console.log("\t"+"--autor <autor del gitbook>");
-        console.log("\t"+"--name <nombre del gitbook>");
-        console.log("\t"+"--url <url del repositorio>");
-        console.log("\t"+"--version");
-        console.log("\t"+"--deploy");
-        break;
-    case myArgs.deploy:
-        console.log("Deploy");
-        break;
-    
-    default:
-        crear_gitbook();
-}
+// switch(myArgs.help | myArgs.version | myArgs.deploy){
+//     case myArgs.help:{
+//         console.log("Seccion de ayuda.");
+//         console.log("Comando: gitbook-start [options]");
+//         console.log("Opciones disponibles:");
+//         console.log("\t"+"-d <directorio en el que se desplegara el gitbook>");
+//         console.log("\t"+"--autor <autor del gitbook>");
+//         console.log("\t"+"--name <nombre del gitbook>");
+//         console.log("\t"+"--url <url del repositorio>");
+//         console.log("\t"+"--version");
+//         console.log("\t"+"--deploy");
+//         break;
+//     }
+//     case myArgs.version:{
+//         console.log("Version:"+json.version);
+//         break;
+//     }
+//     case myArgs.deploy:{
+//         console.log("Deploy");
+//         break;
+//     }
+//     default:{
+        
+//     }
+// }
+
+
 
 var crear_gitbook = (() => {
         gitconfig(function(err,config){
@@ -151,34 +156,35 @@ var crear_gitbook = (() => {
 });
 
 
-// if(myArgs.h || myArgs.help)
-// {
-//     console.log("Seccion de ayuda.");
-//     console.log("Comando: gitbook-start [options]");
-//     console.log("Opciones disponibles:");
-//     console.log("-d <directorio en el que se desplegara el gitbook>");
-//     console.log("--autor <autor del gitbook>");
-//     console.log("--name <nombre del gitbook>");
-//     console.log("--url <url del repositorio>");
-//     console.log("--version");
-// }
-// else
-// {
-//     if(myArgs.v || myArgs.version)
-//     {
-//         console.log("Version:"+json.version);
-//     }
-//     else
-//     {
-//         if(myArgs.deploy)
-//         {
-//             // iaas.deploy(myArgs.IP, myArgs.path, url_repo);
-//         }
-//         else
-//         {
-//             crear_gitbook();   
-//         }
-//     }
-// }
-//     //Comprobando las opciones
-
+if(myArgs.h || myArgs.help)
+{
+    console.log("Seccion de ayuda.");
+    console.log("Comando: gitbook-start [options]");
+    console.log("Opciones disponibles:");
+    console.log("\t"+"-d <directorio en el que se desplegara el gitbook>");
+    console.log("\t"+"--autor <autor del gitbook>");
+    console.log("\t"+"--name <nombre del gitbook>");
+    console.log("\t"+"--url <url del repositorio>");
+    console.log("\t"+"--version");
+    console.log("\t"+"--deploy");
+}
+else
+{
+    if(myArgs.v || myArgs.version)
+    {
+        console.log("Version:"+json.version);
+    }
+    else
+    {
+        if(myArgs.deploy)
+        {
+            console.log("Deploy.");
+            // iaas.deploy(myArgs.IP, myArgs.path, url_repo);
+        }
+        else
+        {
+            crear_gitbook();   
+        }
+    }
+}
+    //Comprobando las opciones
