@@ -1,4 +1,4 @@
-# Práctica 4. 
+# Práctica 4. Sistemas y Tecnologías Web
 
 El objetivo de esta práctica es extender el package NodeJS publicado en npm en una práctica anterior con una nueva funcionalidad que permita que los usuarios con conocimientos de NodeJS puedan extender la conducta del ejecutable para que este realice el despliegue en plataformas distintas de las ya consideradas.
 

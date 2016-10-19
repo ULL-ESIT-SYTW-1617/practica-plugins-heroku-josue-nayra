@@ -1,92 +1,26 @@
-# Práctica 2. Sistemas y Tecnologías Web
+# Práctica 4. 
 
-## Creación de un Paquete NPM
+El objetivo de esta práctica es extender el package NodeJS publicado en npm en una práctica anterior con una nueva funcionalidad que permita que los usuarios con conocimientos de NodeJS puedan extender la conducta del ejecutable para que este realice el despliegue en plataformas distintas de las ya consideradas.
 
-El objetivo de esta práctica es crear un package NodeJS y publicarlo en npm, cuya finalidad será la creación de una estructura inicial 
-que permita al usuario desplegar un gitbook rápidamente.
-
-- Ejecutable 'gitbook-start'
-- Plantilla con la estructura inicial del libro
-- Pasar argumentos por línea de comandos
-- Publicar paquete en npm
+En esta práctica sólo se pide desarrollar el plugin para iaas.ull.es
 
 
-### Pasos a seguir: 
+### Pasos a seguir
 
-- Para instalar este módulo o paquete debemos ejecutar el siguiente comando de forma global:
-    
-    ```
-        $ npm install -g gitbook-start-josue-nayra
-    ```
+Se construye la estructura inicial por *gitbook-start* la jerarquía de directorios conteniendo los scripts y ficheros markdown para el libro
 
-- Construir el libro mediante el comando siguiente: 
-    
-    ```
-        $ gitbook-start [options] -d 
-    ```
-    Opciones posibles:
-        
-        -d <directorio en el que se desplegará el libro>
-        
-        --autor <autor del libro>
-        
-        --name  <nombre del libro>
-        
-        --url <url del repositorio en github>
-    
-    ***En la opción "--url" es obligatorio introducir la url del repositorio en el que se desea desplegar el libro, ya que esta opción NO se rellena por defecto.***
 
-   Una vez ejecutado, se creará el correspondiente directorio cuyo contenido será una estructura inicial a partir de la cual podemos configurar nuestro gitbook.
 
-- A continuación, se deberá colocar en el directorio creado e instalar todas las dependencias necesarias:
-
-    ```bash 
-        $ npm install
-    ```
-
-- Después de realizar modificaciones en su libro, el usuario puede añadir estos cambios al mismo mediante el "deploy". 
-  Esta tarea está especificada en el archivo ***"gulpfile.js"*** como: 
-  
-    ```
-    gulp deploy
-    ```
-
-### Tareas del gulp para el usuario
-
- - Push inicial: Útil para el usuario cuando no ha añadido el repositorio remoto. Es necesario que el repositorio en Github esté creado previamente.
-    ```
-    gulp push_inicial
-    ```
-    
- - Push: Actualización del repositorio en Github.
-   ```
-    gulp push
-   ```
- 
- - Instalar recursos: Tarea que le permite al usuario instalar dependencias y plugins necesarios.
- ```
-    gulp instalar_recursos
- ```
- 
- - Deploy: Comprende la instalación de los recursos necesarios para el despliegue del gitbook, actualización de repositorio, despliegue del mismo en gh-pages. 
-  ```
-    gulp deploy
-  ```
-  
- - Default: Tarea por defecto que al ejecutarse llama a la tarea deploy descrita previamente.
-  ```
-    gulp
-  ```
 
 ### Enlaces
 
 - [Campus virtual](https://campusvirtual.ull.es/1617/course/view.php?id=1175)
 
-- [Descripción de la práctica](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/practicas/practicanm.html)
+- [Descripción de la práctica](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/practicas/practicaplugin.html)
 
 - [Publicación del paquete en npm](https://www.npmjs.com/package/gitbook-start-josue-nayra)
 
-- [Repositorio en Github.com](https://github.com/ULL-ESIT-SYTW-1617/creacion-de-paquetes-y-modulos-en-nodejs-josue-nayra)
+- [Repositorio en Github.com](https://github.com/ULL-ESIT-SYTW-1617/nueva-funcionalidad-para-el-paquete-npm-plugins-josue-nayra)
 
 
 

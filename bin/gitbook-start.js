@@ -17,18 +17,34 @@ var nombre_gitbook;
 var url_wiki;
 var url_bugs;
 
-// console.log("MyArgs:"+myArgs.boolean);
 
-// switch(myArgs._) {
-//     case '0':
-//         console.log("Version");
+// switch(myArgs.help | myArgs.version | myArgs.deploy){
+//     case myArgs.help:{
+//         console.log("Seccion de ayuda.");
+//         console.log("Comando: gitbook-start [options]");
+//         console.log("Opciones disponibles:");
+//         console.log("\t"+"-d <directorio en el que se desplegara el gitbook>");
+//         console.log("\t"+"--autor <autor del gitbook>");
+//         console.log("\t"+"--name <nombre del gitbook>");
+//         console.log("\t"+"--url <url del repositorio>");
+//         console.log("\t"+"--version");
+//         console.log("\t"+"--deploy");
 //         break;
-//     case myArgs.help:
-//         console.log("Sección de ayuda");
+//     }
+//     case myArgs.version:{
+//         console.log("Version:"+json.version);
 //         break;
-//     default:
-//             console.log("Opción no disponible");
+//     }
+//     case myArgs.deploy:{
+//         console.log("Deploy");
+//         break;
+//     }
+//     default:{
+        
+//     }
 // }
+
+
 
 var crear_gitbook = (() => {
         gitconfig(function(err,config){
@@ -145,11 +161,12 @@ if(myArgs.h || myArgs.help)
     console.log("Seccion de ayuda.");
     console.log("Comando: gitbook-start [options]");
     console.log("Opciones disponibles:");
-    console.log("-d <directorio en el que se desplegara el gitbook>");
-    console.log("--autor <autor del gitbook>");
-    console.log("--name <nombre del gitbook>");
-    console.log("--url <url del repositorio>");
-    console.log("--version");
+    console.log("\t"+"-d <directorio en el que se desplegara el gitbook>");
+    console.log("\t"+"--autor <autor del gitbook>");
+    console.log("\t"+"--name <nombre del gitbook>");
+    console.log("\t"+"--url <url del repositorio>");
+    console.log("\t"+"--version");
+    console.log("\t"+"--deploy");
 }
 else
 {
@@ -161,6 +178,7 @@ else
     {
         if(myArgs.deploy)
         {
+            console.log("Deploy.");
             // iaas.deploy(myArgs.IP, myArgs.path, url_repo);
         }
         else
@@ -170,10 +188,3 @@ else
     }
 }
     //Comprobando las opciones
-
-
-        
-
-        
-
-     
