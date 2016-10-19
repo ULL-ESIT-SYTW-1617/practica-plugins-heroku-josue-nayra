@@ -4,7 +4,7 @@
 // const fs = require('fs-extra');
 // const ejs = require('ejs');
 const path = require('path');
-// const basePath = process.cwd();
+const basePath = process.cwd();
 const myArgs = require('minimist')(process.argv.slice(2));
 const json = require(path.join(__dirname,'../package.json')); 
 // const gitconfig = require('git-config');
@@ -69,7 +69,7 @@ else
         if(myArgs.deploy)
         {
             console.log("Deploy to Iaas.");
-            iaas.deploy(myArgs.IP, myArgs.path, json.repository.url, myArgs.usuarioremoto, myArgs.passwordremoto);
+            iaas.deploy(myArgs.IP, myArgs.path, path.join(basePath,'package.json').repository.url, myArgs.usuarioremoto, myArgs.passwordremoto);
         }
         else
         {
