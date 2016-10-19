@@ -8,7 +8,7 @@ const basePath = process.cwd();
 const myArgs = require('minimist')(process.argv.slice(2));
 const json = require(path.join(__dirname,'../package.json')); 
 const gitconfig = require('git-config');
-// const iaas = require('gitbook-start-iaas-ull-es-josue-nayra');
+const iaas = require('gitbook-start-iaas-ull-es-josue-nayra');
 
 var directorio;
 var autor;
@@ -178,8 +178,8 @@ else
     {
         if(myArgs.deploy)
         {
-            console.log("Deploy.");
-            // iaas.deploy(myArgs.IP, myArgs.path, url_repo);
+            console.log("Deploy to Iaas.");
+            iaas.deploy(myArgs.IP, myArgs.path, url_repo);
         }
         else
         {
