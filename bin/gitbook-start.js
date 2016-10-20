@@ -34,9 +34,8 @@ else
             var dependencias = packagejson.dependencies;
             
             for (var d in dependencias){
-                if(d.search(myArgs.deploy)){
-                    var despliegue = require(d);
-                    despliegue.deploy(myArgs.IP, myArgs.path, packagejson.repository.url, myArgs.usuarioremoto);
+                if(d.search(myArgs.deploy) != -1){
+                    require(d).deploy(myArgs.IP, myArgs.path, packagejson.repository.url, myArgs.usuarioremoto);
                     break;
                 }
             }
