@@ -9,6 +9,9 @@ En esta práctica sólo se pide desarrollar el plugin para iaas.ull.es
 
 ### Pasos a seguir para la utilización del plugin
 
+1- Descargar el paquete inicial: *gitbook-start*
+2- 
+
 Se construye la estructura inicial por *gitbook-start* la jerarquía de directorios conteniendo los scripts y ficheros markdown para el libro
 
 

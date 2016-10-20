@@ -21,6 +21,8 @@ var crear_gitbook = (() => {
             autor = myArgs.autor || config.user.name || "Usuario"; 
             directorio = myArgs.d || myArgs.dir || myArgs.name || 'Milibro';
             nombre_gitbook = myArgs.name || myArgs.d || myArgs.autor || "Milibro";
+            directorio = directorio.toLowerCase();
+            nombre_gitbook = nombre_gitbook.toLowerCase();
             
             if(myArgs.url)
             {
