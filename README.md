@@ -1,11 +1,16 @@
 # Práctica 4. Sistemas y Tecnologías Web
 
-El objetivo de esta práctica es extender el package NodeJS publicado en npm en una práctica anterior con una nueva funcionalidad que permita que los usuarios con conocimientos de NodeJS puedan extender la conducta del ejecutable para que este realice el despliegue en plataformas distintas de las ya consideradas.
+## Nueva funcionalidad para el paquete NPM: plugins (IAAS)
+
+El objetivo de esta práctica es extender el package NodeJS publicado en npm con una nueva funcionalidad que permita que los usuarios con conocimientos de NodeJS puedan extender la conducta del ejecutable para que este realice el despliegue en plataformas distintas de las ya consideradas.
 
 En esta práctica sólo se pide desarrollar el plugin para iaas.ull.es
 
 
-### Pasos a seguir
+### Pasos a seguir para la utilización del plugin
+
+1- Descargar el paquete inicial: *gitbook-start*
+2- 
 
 Se construye la estructura inicial por *gitbook-start* la jerarquía de directorios conteniendo los scripts y ficheros markdown para el libro
 
