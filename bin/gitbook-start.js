@@ -4,9 +4,8 @@
 const path = require('path');
 const basePath = process.cwd();
 const myArgs = require('minimist')(process.argv.slice(2));
-const packagejson = require(path.join(basePath, 'package.json'));
 const creacion = require(path.join(__dirname,'../src/creacion_gitbook.js'));
-
+const json = require(path.join(__dirname,'../package.json'));
 
 if(myArgs.h || myArgs.help)
 {
@@ -24,12 +23,13 @@ else
 {
     if(myArgs.v || myArgs.version)
     {
-        console.log("Version:"+packagejson.version);
+        console.log("Version:"+json.version);
     }
     else
     {
         if(myArgs.deploy)
         {
+            const packagejson = require(path.join(basePath, 'package.json'));
             console.log("Desplegando en... "+myArgs.deploy);
             var dependencias = packagejson.dependencies;
             
