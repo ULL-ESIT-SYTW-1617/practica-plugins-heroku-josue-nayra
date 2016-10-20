@@ -45,7 +45,9 @@ var crear_gitbook = (() => {
                 }
                 else{
                   
-                  fs.copy(path.join(__dirname,'../template','.gitignore'), path.join(basePath, directorio , '.gitignore'));
+                  fs.copy(path.join(__dirname,'../template','.gitignore'), path.join(basePath, directorio , '.gitignore'), function(err){
+                      if(err) console.log("Error creando .gitignore:"+err);
+                  });
             
                   fs.copy(path.join(__dirname,'../template','app.js'), path.join(basePath, directorio , 'app.js'));
 
