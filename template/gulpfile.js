@@ -57,13 +57,6 @@ gulp.task('deploy', function(){
        .pipe(shell(['./scripts/losh deploy-wiki']));
 });
 
-// gulp.task('deploy-iaas', function(){
-//         var iaas_IP = json.iaas_IP;
-//         var path = json.iaas_path;
-
-//         iaas.deploy(iaas_IP, path, json.repository.url);
-// });
-
 //------------------------------------------------------------------------------------
 
 gulp.task('default', ['deploy']);
