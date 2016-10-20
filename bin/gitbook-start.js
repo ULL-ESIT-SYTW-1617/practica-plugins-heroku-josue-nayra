@@ -69,7 +69,10 @@ else
         if(myArgs.deploy)
         {
             console.log("Deploy to Iaas.");
-            iaas.deploy(myArgs.IP, myArgs.path, path.join(basePath,'package.json').repository.url, myArgs.usuarioremoto);
+            
+            var packagejson = require(path.join(basePath, 'package.json'));
+            
+            iaas.deploy(myArgs.IP, myArgs.path, packagejson.repository.url , myArgs.usuarioremoto);
         }
         else
         {
