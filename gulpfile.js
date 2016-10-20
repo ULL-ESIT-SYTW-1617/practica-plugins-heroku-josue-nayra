@@ -2,13 +2,15 @@ var gulp = require('gulp');
 var shell = require('gulp-shell');
 var install = require('gulp-install');
 var git = require('simple-git');
+var myArgs = require('minimist')(process.argv.slice(2));
 
 //------------------------------------------------------------------------------------
 // Repositorio Github
 gulp.task('push', function(){
+    var mensaje_commit = myArgs.mensaje || "Actualizando paquete.";
     git()
         .add('./*')
-        .commit("Actualizando paquete")
+        .commit(mensaje_commit)
         .push('origin', 'master');
 });
 
