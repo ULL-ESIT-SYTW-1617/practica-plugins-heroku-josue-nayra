@@ -2,7 +2,7 @@
 
 ## Nueva funcionalidad para el paquete NPM: plugins (IAAS)
 
-El objetivo de esta práctica es extender el package NodeJS desarrollado en la [pŕactica 2](https://www.npmjs.com/package/gitbook-start-josue-nayra), publicado en npm con una nueva funcionalidad que permita que los usuarios con conocimientos de NodeJS puedan extender la conducta del ejecutable para que este realice el despliegue en plataformas distintas de las ya consideradas.
+El objetivo de esta práctica es extender el package NodeJS desarrollado en la [pŕactica 2](https://github.com/ULL-ESIT-SYTW-1617/creacion-de-paquetes-y-modulos-en-nodejs-josue-nayra), publicado en npm con una nueva funcionalidad que permita que los usuarios con conocimientos de NodeJS puedan extender la conducta del ejecutable para que este realice el despliegue en plataformas distintas de las ya consideradas.
 
 En esta práctica sólo se pide desarrollar el plugin para iaas.ull.es
 
