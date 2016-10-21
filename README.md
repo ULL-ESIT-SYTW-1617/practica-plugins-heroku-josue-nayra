@@ -113,7 +113,7 @@ Tarea deploy genérica que actualiza las gh-pages del gitbook.
 $ gulp deploy
 ```
 
-* **deploy-<despliegue realizado>**
+* **deploy --<despliegue realizado>**
 
 Tarea generada posteriormente a la realización y ejecución del comando gitbook-start --deploy, que permite al usuario realizar posteriores despliegues y actualizaciones de su gitbook em la máquina remota con gulp.
 Por ejemplo, en el caso de que el usuario despliegue en el IAAS, después de haber desplegado con la opción gitbook-start --deploy iaas-ull-es, en el gulpfile se generará una tarea
