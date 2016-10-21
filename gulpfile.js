@@ -7,7 +7,7 @@ var myArgs = require('minimist')(process.argv.slice(2));
 //------------------------------------------------------------------------------------
 // Repositorio Github
 gulp.task('push', function(){
-    var mensaje_commit = myArgs.mensaje || "Actualizando paquete.";
+    var mensaje_commit = myArgs.mensaje || "Actualizando paquete";
     git()
         .add('./*')
         .commit(mensaje_commit)

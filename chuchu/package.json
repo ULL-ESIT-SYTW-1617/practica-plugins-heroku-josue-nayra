@@ -1,5 +1,5 @@
 {
-  "name": "<%= name_gitbook %>",
+  "name": "chuchu",
   "version": "0.0.1",
   "description": "Gitbook",
   "main": "index.js",
@@ -15,20 +15,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "<%= url %>",
-    "wiki": "<%= url_wiki %>"
+    "url": " ",
+    "wiki": " "
   },
   "keywords": [
     "gitbook",
     "boilerplate",
     "starter"
   ],
-  "author": "<%= autor %>",
+  "author": "josuetc94",
   "license": "MIT",
   "bugs": {
-    "url": "<%= url_bugs %>"
+    "url": " "
   },
-  "homepage": "<%= url %>",
+  "homepage": " ",
   "dependencies": {
     "async": "^1.4.0",
     "express": "~4.13.4",
