@@ -7,14 +7,41 @@ El objetivo de esta práctica es extender el package NodeJS publicado en npm con
 En esta práctica sólo se pide desarrollar el plugin para iaas.ull.es
 
 
+
+
 ### Pasos a seguir para la utilización del plugin
 
 1- Descargar el paquete inicial: *gitbook-start*
-2- 
+    ``` $ npm install -g gitbook-start-josue-nayra ```
+
+2- Crear el libro mediante el comando:
+    ``` $ gitbook-start -d <directorio> --autor <autor> --name <nombre_libro> --url <url_repo>```
 
 Se construye la estructura inicial por *gitbook-start* la jerarquía de directorios conteniendo los scripts y ficheros markdown para el libro
 
+3- Colocarse en la carpeta que contiene el libro.
 
+4- Instalar las dependencias necesarias mediante el comando:
+    ``` $ npm install ```
+
+5- Instalar el plugin *gitbook-start-iaas-ull-es-josue-nayra* para el despliegue en iaas.
+    ``` $ npm install --save gitbook-start-iaas-ull-es-josue-nayra ```
+
+6- Es necesario tener el repositorio remoto actualizado, para ello se dispone de una tarea en el gulp: ***gulp push***.
+
+7- Ejecutar el plugin:
+    ``` $ gitbook-start --deploy iaas-ull-es --IP <ip> --path <ruta_maquina> --usuarioremoto <usuario_maquina>  ```
+
+
+### Tareas Gulp
+
+
+* push
+  
+
+
+* instalar_recursos
+* deploy
 
 
 ### Enlaces
