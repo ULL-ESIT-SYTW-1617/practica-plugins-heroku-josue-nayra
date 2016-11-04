@@ -1,18 +1,16 @@
 # Práctica 4. Sistemas y Tecnologías Web
 
-## Nueva funcionalidad para el paquete NPM: plugins (Heroku)
+## Nueva funcionalidad para el paquete NPM: plugins (IAAS)
 
-El objetivo de esta práctica es extender el package NodeJS desarrollado en la [pŕactica 2](https://github.com/ULL-ESIT-SYTW-1617/creacion-de-paquetes-y-modulos-en-nodejs-josue-nayra), publicado en npm con una nueva funcionalidad que permita que los usuarios con conocimientos de NodeJS puedan extender la conducta del ejecutable para que este realice el despliegue en plataformas distintas de las ya consideradas.
+El objetivo de esta práctica es extender el package NodeJS desarrollado en la [pŕactica 2](https://www.npmjs.com/package/gitbook-start-josue-nayra), publicado en npm con una nueva funcionalidad que permita que los usuarios con conocimientos de NodeJS puedan extender la conducta del ejecutable para que este realice el despliegue en plataformas distintas de las ya consideradas.
 
-En esta práctica sólo se pide desarrollar el plugin para iaas.ull.es
+[Plugin: gitbook-start-iaas-ull-es-josue-nayra](https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-iaas-ull-es-josue-nayra)
 
+[Plugin: gitbook-start-heroku-josue-nayra](https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-heroku-josue-nayra)
 
-[Repositorio Plugin](https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-heroku-josue-nayra)
+### Pasos a seguir para la utilización paquete y de sus plugins
 
-
-### Pasos a seguir para la utilización del plugin
-
-1- Descargar el paquete inicial: *gitbook-start*
+1- Descargar el paquete inicial: **gitbook-start**
     
 ```bash
 $ npm install -g gitbook-start-josue-nayra 
@@ -24,19 +22,19 @@ $ npm install -g gitbook-start-josue-nayra
 $ gitbook-start -d <directorio> --autor <autor> --name <nombre_libro> --url <url_repo>
 ```
     
-    Opciones disponibles para la creación del libro:
-        
-        -d o --directorio <directorio en el que se desplegará el libro>
-        
-        --autor <autor del libro>
-        
-        --name  <nombre del libro>
-        
-        --url <url del repositorio en github>
+Opciones disponibles para la creación del libro:
     
-        --help 
-        
-        --version
+    -d o --directorio <directorio en el que se desplegará el libro>
+    
+    --autor <autor del libro>
+    
+    --name  <nombre del libro>
+    
+    --url <url del repositorio en github>
+
+    --help 
+    
+    --version
 
 Se construye así la estructura inicial por **gitbook-start**, es decir, la jerarquía de directorios conteniendo los scripts y ficheros markdown para el libro.
 
@@ -52,36 +50,37 @@ $ cd <directorio en el que se ha desplegado el libro>
 $ npm install 
 ```
 
-5- Instalar el plugin requerido como dependendecia con la opción --save, como por ejemplo: **gitbook-start-iaas-ull-es-josue-nayra** para el despliegue en iaas.
+5- Instalar los plugins requeridos como dependendecias con la opción --save, como por ejemplo: **gitbook-start-iaas-ull-es-josue-nayra** o **gitbook-start-heroku-josue-nayra**, para el despliegue en iaas y heroku respectivamente.
     
 ```bash
 $ npm install --save gitbook-start-iaas-ull-es-josue-nayra 
 ```
 
-6- Es necesario tener el repositorio remoto actualizado. Para ello podemos ejecutar una de las tareas descritas en el gulpfile: **gulp push --mensaje <mensaje commit>**.
-
-
-7- El usuario debe tener su máquina IAAS configurada. Para ello debe:
-
-* Haber copiado el fichero de clave pública 'id_rsa.pub' de su máquina en el iaas para poder acceder a la misma sin necesidad de especificar usuario y contraseña cuando se realicen conexiones remotas. Para ello podemos ejecutar el siguiente comando
-en la máquina local:
-    
 ```bash
-$ scp ~/.ssh/id_rsa.pub <máquina remota>:~/.ssh/
+$ npm install --save gitbook-start-heroku-josue-nayra
 ```
-* En la máquina del IAAS, el usuario debe clonar el repositorio dónde se alojará el gitbook.
+
+6- Para la actualización de nuestro repositorio podemos ejecutar una de las tareas descritas en el gulpfile: **gulp push --mensaje <mensaje commit>**.
 
 
-8- Ejecutar el plugin:
+7- Ejecutar la opción --deploy especificando la máquina remota dónde queremos hacer el despliegue:
    
 ```bash
-$ gitbook-start --deploy iaas-ull-es --IP <ip> --path <ruta_maquina> --usuarioremoto <usuario_maquina_iaas>  
+$ gitbook-start --deploy [iaas-ull-es|heroku] [Opciones]
 ```
 
-   Opciones disponibles:
-        --deploy <maquina donde se va a desplegar el gitbook>
-        --IP <ip de la máquina>
-        --usuarioremoto <usuario de la máquina>
+Para conocer mejor las opciones disponibles para cada plugin de despliegue podemos acceder a los paquetes publicados en npm
+para despliegues en iaas-ull-es o en Heroku. Los enlaces podemos encontrarlo en las siguientes secciones.
+
+
+9- Una vez ejecutado el comando anterior, se generará automáticamente en el gulpfile.js una tarea llamada 
+"deploy-<máquina en la que realizar el despliegue>" que permitirá al usuario actualizar el contenido de dicha máquina.
+
+```javascript
+gulp.task("deploy-<máquina en la que realizar el despliegue>", function(){
+    require(path.join(basePath, 'node_modules','<plugin de depliegue>')).deploy(...);
+});
+```
 
 
 NOTA: El despliegue en el IAAS se realizará por defecto en el puerto 8080. En el caso que quiera cambiarse hay que acceder al fichero app.js y modificarlo.
@@ -114,16 +113,23 @@ Tarea deploy genérica que actualiza las gh-pages del gitbook.
 $ gulp deploy
 ```
 
-* **deploy --<despliegue realizado>**
+* **deploy-iaas-ull-es**
 
-Tarea generada posteriormente a la realización y ejecución del comando gitbook-start --deploy, que permite al usuario realizar posteriores despliegues y actualizaciones de su gitbook em la máquina remota con gulp.
+Tarea generada posteriormente a la realización y ejecución del comando gitbook-start --deploy, que permite al usuario realizar posteriores despliegues y actualizaciones de su gitbook en la máquina remota con gulp.
 Por ejemplo, en el caso de que el usuario despliegue en el IAAS, después de haber desplegado con la opción gitbook-start --deploy iaas-ull-es, en el gulpfile se generará una tarea
 con el nombre deploy-iaas-ull-es.
 
 ```
-$ gulp deploy-<máquina en la se ha desplegado previamente>
+$ gulp deploy-iaas-ull-es
 ```
 
+* **deploy-heroku**
+
+Tarea generada posteriormente a la realización y ejecución del comando gitbook-start --deploy, que permite al usuario realizar posteriores despliegues y actualizaciones de su gitbook en Heroku con gulp. Por ejemplo, en el caso de que el usuario despliegue en Heroku, después de haber desplegado con la opción gitbook-start --deploy heroku, en el gulpfile se generará una tarea con el nombre deploy-heroku.
+
+```
+$ gulp deploy-heroku
+```
 
 ### Enlaces
 
@@ -131,14 +137,17 @@ $ gulp deploy-<máquina en la se ha desplegado previamente>
 
 - [Descripción de la práctica](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/practicas/practicaplugin.html)
 
-- [Publicación del paquete en npm](https://www.npmjs.com/package/gitbook-start-josue-nayra)
-
-- [Repositorio en Github.com](https://github.com/ULL-ESIT-SYTW-1617/nueva-funcionalidad-para-el-paquete-npm-plugins-josue-nayra)
+- [Publicación del paquete gitbook-start-josue-nayra](https://www.npmjs.com/package/gitbook-start-josue-nayra)
 
 - [Plugin para el despliegue en IAAS](https://www.npmjs.com/package/gitbook-start-iaas-ull-es-josue-nayra)
 
-- [Repositorio del plugin iaas-ull-es](https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-iaas-ull-es-josue-nayra) 
+- [Plugin para el despliegue con Heroku](https://www.npmjs.com/package/gitbook-start-heroku-josue-nayra)
 
+- [Repositorio del plugin Heroku](https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-heroku-josue-nayra/) 
+
+- [Repositorio del plugin IAAS](https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-iaas-ull-es-josue-nayra) 
+
+- [Repositorio de gitbook-start-josue-nayra](https://github.com/ULL-ESIT-SYTW-1617/nueva-funcionalidad-para-el-paquete-npm-plugins-josue-nayra)
 
 
 

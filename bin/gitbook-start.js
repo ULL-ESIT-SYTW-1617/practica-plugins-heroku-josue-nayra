@@ -33,26 +33,20 @@ else
             const packagejson = require(path.join(basePath, 'package.json'));
             console.log("Desplegando en... "+myArgs.deploy);
             var dependencias = packagejson.dependencies;
-            // var dependencia_buscada;
-            
-            for (var d in dependencias){
-                if(d.search(myArgs.deploy) != -1){
-                    // dependencia_buscada = d;  
-                    // var tarea_gulp = `\n\ngulp.task("deploy-${myArgs.deploy}", function(){`+
-                    //          `\n       require("${dependencia_buscada}").deploy("${myArgs.IP}", "${myArgs.path}", "${packagejson.repository.url}", "${myArgs.usuarioremoto}");`+
-                    //          `\n});`;     
-                    // fs.appendFile(path.join(basePath,'gulpfile.js'), `${tarea_gulp}`, (err) => {
-                    //   if (err) throw err;
-                    //     console.log("Escribiendo tarea en gulpfile para próximos despliegues");        
-                    // });
-                    
-                    // require(d).deploy(myArgs.IP, myArgs.path, packagejson.repository.url, myArgs.usuarioremoto);
-                    require(d).initialize(myArgs.IP,myArgs.path,packagejson.repository.url,myArgs.usuarioremoto);
-                    break;
-                }
-            }
-        
 
+            try {
+                for (var d in dependencias){
+                    if(d.search(myArgs.deploy) != -1){
+                        
+                        require(path.join(basePath,'node_modules',d)).initialize(myArgs.IP,myArgs.path,packagejson.repository.url,myArgs.usuarioremoto);
+                        break;
+                        
+                    }
+
+                }
+            } catch(e){
+                console.log("No se ha encontrado el plugin. Error: "+ e);
+            }
         }
         else
         {
