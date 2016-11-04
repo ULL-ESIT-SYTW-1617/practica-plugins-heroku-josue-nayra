@@ -1,6 +1,6 @@
 # Práctica 4. Sistemas y Tecnologías Web
 
-## Nueva funcionalidad para el paquete NPM: plugins (IAAS)
+## Nueva funcionalidad para el paquete NPM: plugins (IAAS y Heroku)
 
 El objetivo de esta práctica es extender el package NodeJS desarrollado en la [pŕactica 2](https://www.npmjs.com/package/gitbook-start-josue-nayra), publicado en npm con una nueva funcionalidad que permita que los usuarios con conocimientos de NodeJS puedan extender la conducta del ejecutable para que este realice el despliegue en plataformas distintas de las ya consideradas.
 
@@ -73,7 +73,7 @@ Para conocer mejor las opciones disponibles para cada plugin de despliegue podem
 para despliegues en iaas-ull-es o en Heroku. Los enlaces podemos encontrarlo en las siguientes secciones.
 
 
-9- Una vez ejecutado el comando anterior, se generará automáticamente en el gulpfile.js una tarea llamada 
+8- Una vez ejecutado el comando anterior, se generará automáticamente en el gulpfile.js una tarea llamada 
 "deploy-<máquina en la que realizar el despliegue>" que permitirá al usuario actualizar el contenido de dicha máquina.
 
 ```javascript
