@@ -10,7 +10,7 @@ El objetivo de esta práctica es extender el package NodeJS desarrollado en la [
 
 ### Pasos a seguir para la utilización paquete y de sus plugins
 
-1- Descargar el paquete inicial: **gitbook-start**
+1- Descargar el paquete inicial: **gitbook-start-josue-nayra**
     
 ```bash
 $ npm install -g gitbook-start-josue-nayra 
@@ -60,20 +60,34 @@ $ npm install --save gitbook-start-iaas-ull-es-josue-nayra
 $ npm install --save gitbook-start-heroku-josue-nayra
 ```
 
+
 6- Para la actualización de nuestro repositorio podemos ejecutar una de las tareas descritas en el gulpfile: **gulp push --mensaje <mensaje commit>**.
 
 
-7- Ejecutar la opción --deploy especificando la máquina remota dónde queremos hacer el despliegue:
+7- Nos logueamos en Heroku a través del siguiente comando:
+
+```bash
+$ heroku login
+```
+
+
+8- Ahora debemos asignarle un nombre a la aplicación de Heroku que se creará en el siguiente paso. Para ello accedemos al package.json y rellenamos la sección de Heroku:
+
+```json
+  "Heroku":{
+    "nombre_app": "<nombre de la aplicación"
+  },
+```
+
+
+9- Ejecutar la opción --deploy especificando la máquina remota dónde queremos hacer el despliegue:
    
 ```bash
 $ gitbook-start --deploy [iaas-ull-es|heroku] [Opciones]
 ```
 
-Para conocer mejor las opciones disponibles para cada plugin de despliegue podemos acceder a los paquetes publicados en npm
-para despliegues en iaas-ull-es o en Heroku. Los enlaces podemos encontrarlo en las siguientes secciones.
 
-
-8- Una vez ejecutado el comando anterior, se generará automáticamente en el gulpfile.js una tarea llamada 
+10- Una vez ejecutado el comando anterior, se generará automáticamente en el gulpfile.js una tarea llamada 
 "deploy-<máquina en la que realizar el despliegue>" que permitirá al usuario actualizar el contenido de dicha máquina.
 
 ```javascript
@@ -82,8 +96,11 @@ gulp.task("deploy-<máquina en la que realizar el despliegue>", function(){
 });
 ```
 
+Ahora el usuario podrá ejecutar el siguiente comando y se le actualizarán los cambios en el Gitbook desplegado en Heroku:
 
-NOTA: El despliegue en el IAAS se realizará por defecto en el puerto 8080. En el caso que quiera cambiarse hay que acceder al fichero app.js y modificarlo.
+``` 
+$ gulp deploy-heroku 
+```
 
 
 
@@ -149,6 +166,8 @@ $ gulp deploy-heroku
 
 - [Repositorio de gitbook-start-josue-nayra](https://github.com/ULL-ESIT-SYTW-1617/nueva-funcionalidad-para-el-paquete-npm-plugins-josue-nayra)
 
+- [Repositorio MAIN Heroku](https://github.com/ULL-ESIT-SYTW-1617/practica-plugins-heroku-josue-nayra)
+ 
 
 
 ### Referencias
